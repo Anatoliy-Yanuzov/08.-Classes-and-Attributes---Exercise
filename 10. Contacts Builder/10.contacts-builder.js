@@ -1,5 +1,5 @@
 class Contact {
-	constructor (firstName, lastName, phone, email) {
+	constructor(firstName, lastName, phone, email) {
 		this.firstName = firstName
 		this.lastName = lastName
 		this.phone = phone
@@ -7,11 +7,11 @@ class Contact {
 		this._online = false
 	}
 
-	get online () {
+	get online() {
 		return this._online
 	}
 
-	set online (v) {
+	set online(v) {
 		this._online = v
 
 		if (this.onlineDiv) {
@@ -19,14 +19,14 @@ class Contact {
 		}
 	}
 
-	eFactory (tag, content = '') {
+	eFactory(tag, content = '') {
 		const e = document.createElement(tag);
 		e.innerHTML = content
 
 		return e
 	}
 
-	render (id) {
+	render(id) {
 		this.temple = this.eFactory('article')
 		this.onlineDiv = this.eFactory('div', `${this.firstName} ${this.lastName}`);
 		this.infoBtn = this.eFactory('button', '&#8505;')
