@@ -1,9 +1,9 @@
 class Contact {
-	constructor (f, l, p, e) {
-		this.firstName = f
-		this.lastName = l
-		this.phone = p
-		this.email = e
+	constructor (firstName, lastName, phone, email) {
+		this.firstName = firstName
+		this.lastName = lastName
+		this.phone = phone
+		this.email = email
 		this._online = false
 	}
 
@@ -20,15 +20,15 @@ class Contact {
 	}
 
 	eFactory (tag, content = '') {
-		const e = document.createElement(tag)
+		const e = document.createElement(tag);
 		e.innerHTML = content
 
 		return e
 	}
 
 	render (id) {
-		this.templ = this.eFactory('article')
-		this.onlineDiv = this.eFactory('div', `${this.firstName} ${this.lastName}`)
+		this.temple = this.eFactory('article')
+		this.onlineDiv = this.eFactory('div', `${this.firstName} ${this.lastName}`);
 		this.infoBtn = this.eFactory('button', '&#8505;')
 		this.infoDiv =
 			this.eFactory(
@@ -41,14 +41,14 @@ class Contact {
 		this.infoDiv.className = 'info'
 		this.infoDiv.style.display = 'none'
 
-		this.onlineDiv.appendChild(this.infoBtn)
-		this.templ.appendChild(this.onlineDiv)
-		this.templ.appendChild(this.infoDiv)
+		this.onlineDiv.appendChild(this.infoBtn);
+		this.temple.appendChild(this.onlineDiv);
+		this.temple.appendChild(this.infoDiv);
 
-		document.getElementById(id).appendChild(this.templ)
+		document.getElementById(id).appendChild(this.temple);
 
 		this.infoBtn.addEventListener('click', () => {
 			this.infoDiv.style.display = this.infoDiv.style.display === 'none' ? 'block' : 'none'
-		})
+		});
 	}
 }
